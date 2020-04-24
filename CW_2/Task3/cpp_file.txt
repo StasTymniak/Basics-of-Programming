@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+char reverse(char* p);
+
+int main()
+{
+    char str[] = "Hello world";
+
+    cout << "Your string " << str << "\n";
+    cout << "Reversed string: ";
+    cout << reverse(str);
+    cout << "\n";
+    system("Pause");
+}
+
+char reverse(char* p)
+{
+    if (*p)
+        reverse(p + 1);//у довжину ланцюжка == символ + 1 (символ кінця рядка) коли перевертаємо рядок,
+                      //початок з'їжджає на 1 позицію і читається сміття, тобто то що по ідеї до p [0]
+    else return 0;
+    cout << *p;
+    return 0;
+}

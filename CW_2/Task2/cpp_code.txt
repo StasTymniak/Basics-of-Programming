@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+float** ReadMatrix(int n, int m)//Зчитування матриці
+{
+    float** matrix = new float* [n];
+    for (int i = 0; i < n; i++)
+    {
+        matrix[i] = new float[m];
+        for (int j = 0; j < m; j++)
+        {
+            cout << "a[" << i + 1 << "," << j + 1 << "]=";
+            cin >> matrix[i][j];
+        }
+    }
+
+    return matrix;
+}
+
+void WriteMatrix(float** matrix, int n, int m)//Друк матриці
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            cout << matrix[i][j] << ' ';
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    float sum = 0;
+    int n, m;
+    cout << "N: ";  cin >> n;
+    cout << "M: "; cin >> m;
+    auto float_matrix = ReadMatrix(n, m);
+    WriteMatrix(float_matrix, n, m);
+    auto binary_matrix = ReadMatrix(n, m);
+    WriteMatrix(binary_matrix, n, m);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            //Перевірка індексів на яких значення бінарної матриці дорівнює 1
+            if (binary_matrix[i][j] == 1) {
+                //Додавання до суми елементів з дійсної матриці
+                sum = sum + float_matrix[i][j];
+            }
+        }
+    }
+    //Вивід суми
+    cout << "Sum = " << sum;
+}
