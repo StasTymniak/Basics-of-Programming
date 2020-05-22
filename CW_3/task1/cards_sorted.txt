@@ -1,0 +1,6 @@
+spades ten
+spades queen
+spades king
+hearts ten
+diamonds nine
+clubs six
